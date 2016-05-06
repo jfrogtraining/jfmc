@@ -1,0 +1,1 @@
+curl -H "Content-Type:application/json" -X POST -d '{"instanceNames": ["artifactory-demo"],"user": {"name": "nytemp","email": "nyadav@somewhere.com","password": 12345678,"admin": false,"profileUpdatable": false,"internalPasswordDisabled": false}}' -uadmin:password "http://localhost:8089/api/v1/users”
