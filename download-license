@@ -1,0 +1,2 @@
+sudo jfrog mc c --url=<local mission control ip:8080> --user=admin --password=password --interactive=false
+sudo jfrog mc rti attach-lic myartifactory --bucket-id=<from JFMC dashboard> --bucket-key=<TBD> --license-path=$HOME/swampup/artifactory.lic
