@@ -1,2 +1,2 @@
-curl -H 'X-JFrog-Art-Api: AKCp2UNXb6BMQEZNi8fozXW1JxaQExUJnQeEUbPRU1LWFrZV2uaJXHoYZMDag1VWqy7QUN81t' -O "http://10.60.1.221:8081/artifactory/jswampup-remote/artifactory/jfrog-artifactory-pro-4.7.5.zip"
+curl -H 'X-JFrog-Art-Api: AKCp2UNXb6BMQEZNi8fozXW1JxaQExUJnQeEUbPRU1LWFrZV2uaJXHoYZMDag1VWqy7QUN81t' -O "http://10.5.8.143:8081/artifactory/jswampup-remote/artifactory/jfrog-artifactory-pro-4.7.5.zip"
 
