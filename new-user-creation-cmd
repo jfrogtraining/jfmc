@@ -1,1 +1,4 @@
 curl -H "Content-Type:application/json" -X POST -d '{"instanceNames": ["Art-jfrog-SFO"],"user": {"name": "nytemp","email": "nyadav@somewhere.com","password": 12345678,"admin": false,"profileUpdatable": false,"internalPasswordDisabled": false}}' -uadmin:password "http://10.5.8.143:8089/api/v1/users"
+
+curl -H "Content-Type:application/json" -X POST -d '{"instanceNames": ["Art-jfrog-Boston"],"user": {"name": "nytemp","email": "nyadav@somewhere.com","password": 12345678,"admin": false,"profileUpdatable": false,"internalPasswordDisabled": false}}' -uadmin:password "http://10.5.8.143:8089/api/v1/users"
+
