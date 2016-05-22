@@ -1,6 +1,6 @@
 Mac OS
-curl -H 'X-JFrog-Art-Api: AKCp2UNXb6BMQEZNi8fozXW1JxaQExUJnQeEUbPRU1LWFrZV2uaJXHoYZMDag1VWqy7QUN81t' -O "http://192.168.1.139:8081/artifactory/jswampup-remote/java/jdk-8u91-macosx-x64.dmg"
+curl -H 'X-JFrog-Art-Api: AKCp2UNXb6BF99QEWuJvQedY7ipYovoYTLieBWzU8HK1jMdMQaMkdAoJVhAWpBCbZFXgTmLU3' -O "http://192.168.1.139:8081/artifactory/jswampup-remote/java/jdk-8u91-macosx-x64.dmg"
 Linux
-curl -H 'X-JFrog-Art-Api: AKCp2UNXb6BMQEZNi8fozXW1JxaQExUJnQeEUbPRU1LWFrZV2uaJXHoYZMDag1VWqy7QUN81t' -O "http://192.168.1.139:8081/artifactory/jswampup-remote/java/jdk-8u91-windows-x64.exe"
+curl -H 'X-JFrog-Art-Api: AKCp2UNXb6BF99QEWuJvQedY7ipYovoYTLieBWzU8HK1jMdMQaMkdAoJVhAWpBCbZFXgTmLU3' -O "http://192.168.1.139:8081/artifactory/jswampup-remote/java/jdk-8u91-windows-x64.exe"
 Ubuntu
-curl -H 'X-JFrog-Art-Api: AKCp2UNXb6BMQEZNi8fozXW1JxaQExUJnQeEUbPRU1LWFrZV2uaJXHoYZMDag1VWqy7QUN81t' -O "http://192.168.1.139:8081/artifactory/jswampup-remote/java/jdk-8u77-linux-x64.tar.gz"
+curl -H 'X-JFrog-Art-Api: AKCp2UNXb6BF99QEWuJvQedY7ipYovoYTLieBWzU8HK1jMdMQaMkdAoJVhAWpBCbZFXgTmLU3' -O "http://192.168.1.139:8081/artifactory/jswampup-remote/java/jdk-8u77-linux-x64.tar.gz"
