@@ -1,1 +1,1 @@
-curl -H 'X-JFrog-Art-Api: AKCp2UNXb6BMQEZNi8fozXW1JxaQExUJnQeEUbPRU1LWFrZV2uaJXHoYZMDag1VWqy7QUN81t' -O "http://192.168.1.139:8081/artifactory/jswampup-remote/jfmc/jfrog-mission-control-1.1.zip"
+curl -H 'X-JFrog-Art-Api: AKCp2UNXb6BF99QEWuJvQedY7ipYovoYTLieBWzU8HK1jMdMQaMkdAoJVhAWpBCbZFXgTmLU3' -O "http://192.168.1.139:8081/artifactory/jswampup-remote/jfmc/jfrog-mission-control-1.1.zip"
