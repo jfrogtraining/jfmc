@@ -1,0 +1,82 @@
+############################################################
+## Automation Class - Links	and Downloads			      ##
+############################################################
+Local Artifactory Instance: http://192.168.1.139:8081 (Credential jfrog/jfrog)
+Wireless Router: jfrog_bordeaux (password: training2016) 
+Available on Artifactory: jswampup-remote-cache
+1. Git 2.8.1
+   Curl 7.49
+   jdk 8 
+   Jenkins - Port 9090
+   Artifactory-Pro Registry-4.8.0 - Port 9091
+
+2. References
+Git clone git@github.com:jfrogtraining/jfmc.git
+
+################################################################
+## Create a sandbox - suggestion                              ##
+################################################################
+mkdir $HOME/swampup
+cd $HOME/swampup
+################################################################
+## Git Clone
+################################################################
+1. git clone git@github.com:jfrogtraining/jfmc.git
+
+################################################################
+## Use CLI1.2 to get Artifactory License from JFMC to install on local artifactory
+## If installing with Homebrew
+export HOMEBREW_BOTTLE_DOMAIN=https://192.168.1.139:8081/artifactory
+brew install jfrog-cli-go
+## else 
+browse to: https://192.168.0.1:8081/artifactory/jswampup-remote-cache/cli-1.2
+download binary appropriate to your distribution onto your 
+##
+################################################################
+## Install Artifactory License
+################################################################
+cd $HOME/swampup
+
+sudo chmod -r 777 $HOME/.jfrog
+sudo chown stanleyfong:staff $HOME/.jfrog
+jfrog mc c --url=http://192.168.1.139:8081 --user=admin --password=password --interactive=false
+jfrog mc rti attach-lic <userName> --bucket-id=1831531631 --bucket-key=68b5f7dcbe7c25dcf2ef2952c7429b99ec217d01a832eb6c4261738187d2e097  --license-path=local-store/artifactory.lic
+
+################################################################
+## Download Artifactory
+################################################################
+  --jfrog-artifactory-pro-4.7.6.zip
+    curl -H 'X-JFrog-Art-Api: AKCp2UNXb6BMQEZNi8fozXW1JxaQExUJnQeEUbPRU1LWFrZV2uaJXHoYZMDag1VWqy7QUN81t' -O "http://http://192.168.1.139:8081/artifactory/jswampup-remote/artifactory/jfrog-artifactory-pro-4.7.6.zip"
+  --jfrog-artifactory-pro-4.7.7.zip
+    curl -H 'X-JFrog-Art-Api: AKCp2UNXb6BMQEZNi8fozXW1JxaQExUJnQeEUbPRU1LWFrZV2uaJXHoYZMDag1VWqy7QUN81t' -O "http://http://192.168.1.139:8081/artifactory/jswampup-remote/artifactory/jfrog-artifactory-pro-4.7.7.zip"
+
+  --jfrog-artifactory-pro-4.7.8.zip
+    curl -H 'X-JFrog-Art-Api: AKCp2UNXb6BMQEZNi8fozXW1JxaQExUJnQeEUbPRU1LWFrZV2uaJXHoYZMDag1VWqy7QUN81t' -O "http://http://192.168.1.139:8081/artifactory/jswampup-remote/artifactory/jfrog-artifactory-pro-4.7.8.zip"
+
+################################################################
+## Download JFMC
+################################################################
+  curl -H 'X-JFrog-Art-Api: AKCp2UNXb6BMQEZNi8fozXW1JxaQExUJnQeEUbPRU1LWFrZV2uaJXHoYZMDag1VWqy7QUN81t' -O "http://192.168.1.139:8081/artifactory/jswampup-remote/jfmc/jfrog-mission-control-1.2.zip"
+
+################################################################
+## New user creation
+################################################################
+
+  curl -H "Content-Type:application/json" -X POST -d '{"instanceNames": ["Art-jfrog-SFO"],"user": {"name": "nytemp","email": "nyadav@somewhere.com","password": 12345678,"admin": false,"profileUpdatable": false,"internalPasswordDisabled": false}}' -uadmin:password "http://192.168.1.139:8089/api/v1/users"
+
+  curl -H "Content-Type:application/json" -X POST -d '{"instanceNames": ["Art-jfrog-Boston"],"user": {"name": "nytemp","email": "nyadav@somewhere.com","password": 12345678,"admin": false,"profileUpdatable": false,"internalPasswordDisabled": false}}' -uadmin:password "http://192.168.1.139:8089/api/v1/users"
+
+################################################################
+## New repo creation script
+################################################################
+  
+  localRepository('studentA-maven-local') {  description "Local repository creation script for SwampUP"  notes " Test"  includesPattern "**/*"   excludesPattern ""   repoLayoutRef "maven-2-default"  packageType "maven"   debianTrivialLayout false  checksumPolicyType "client-checksums"  handleReleases true  handleSnapshots false  maxUniqueSnapshots  0  snapshotVersionBehavior "unique"  suppressPomConsistencyChecks false  blackedOut false // default  archiveBrowsingEnabled false  calculateYumMetadata false  yumRootDepth 0}
+
+################################################################
+## Star Topology Replication Setup
+################################################################
+  
+  -- Script CreateLocalRepo
+    repokey = userInput (    type : "STRING", // "BOOLEAN", "INTEGER", "INSTANCE", "REPOSITORY"    description : "Repository Key",    validations : (["cron"])  )localRepository(repokey) {  description "Public Description"  notes "Some internal notes"  includesPattern "**/*" // default  excludesPattern "" // default  repoLayoutRef "maven-2-default"  packageType "generic" // "maven" | "gradle" | "ivy" | "sbt" | "nuget" | "gems" | "npm" | "bower" | "debian" | "pypi" | "docker" | "vagrant" | "gitlfs" | "yum" | "generic"   debianTrivialLayout false  checksumPolicyType "client-checksums" // default | "server-generated-checksums"  handleReleases true // default  handleSnapshots true // default  maxUniqueSnapshots  0 // default  snapshotVersionBehavior "unique" // "non-unique" default | "deployer"  blackedOut false // default  archiveBrowsingEnabled true
+  -- CreateMultiPushReplication
+    localRepository('repository-key') {multipushReplication(peers)  {    // URL will be calculated based on the repositories created in other instances    cronExp "0 0/9 14 * * ?"    socketTimeoutMillis 15000    username "admin"    password "password"    proxy //"proxy-ref"    enableEventReplication  true    enabled  true    syncDeletes  false    syncProperties  true  }}
