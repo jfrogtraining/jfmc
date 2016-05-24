@@ -1,1 +1,23 @@
-localRepository('studentA-maven-local') {  description "Local repository creation script for SwampUP"  notes " Test"  includesPattern "**/*"   excludesPattern ""   repoLayoutRef "maven-2-default"  packageType "maven"   debianTrivialLayout false  checksumPolicyType "client-checksums"  handleReleases true  handleSnapshots false  maxUniqueSnapshots  0  snapshotVersionBehavior "unique"  suppressPomConsistencyChecks false  blackedOut false // default  archiveBrowsingEnabled false  calculateYumMetadata false  yumRootDepth 0}
+repokey = userInput (
+    type : "STRING", // "BOOLEAN", "INTEGER", "INSTANCE", "REPOSITORY"
+    description : "Repository Key",
+    validations : (["cron"])
+  )
+
+localRepository(repokey) {
+  description "Public Description"
+  notes "Some internal notes"
+  includesPattern "**/*" // default
+  excludesPattern "" // default
+  repoLayoutRef "maven-2-default"
+  packageType "generic" // "maven" | "gradle" | "ivy" | "sbt" | "nuget" | "gems" | "npm" | "bower" | "debian" | "pypi" | "docker" | "vagrant" | "gitlfs" | "yum" | "generic" 
+  debianTrivialLayout false
+  checksumPolicyType "client-checksums" // default | "server-generated-checksums"
+  handleReleases true // default
+  handleSnapshots true // default
+  maxUniqueSnapshots  0 // default
+  snapshotVersionBehavior "unique" // "non-unique" default | "deployer"
+  blackedOut false // default
+  archiveBrowsingEnabled true
+
+}
