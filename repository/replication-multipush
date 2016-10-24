@@ -5,7 +5,7 @@ UI =
     multivalued : true
   )
 
-localRepository('test-push') {
+localRepository('sc-star-local') {
   multipushReplication(UI)  {
     // URL will be calculated based on the repositories created in other instances
     cronExp "0 0/9 14 * * ?"
