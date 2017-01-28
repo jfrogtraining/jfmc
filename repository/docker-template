@@ -1,6 +1,12 @@
-localRepository('docker-staging-local') {
-  description 'demo-promotion-to-staging-path'
-  notes 'created-by-automation'
+repokey = userInput (
+    type : "STRING", // "BOOLEAN", "INTEGER", "INSTANCE", "REPOSITORY"
+    description : "Repository Key",
+    validations : (["cron"])
+  )
+
+localRepository(repokey) {
+  description 'webinar docker local repo'
+  notes 'created by jfmc'
   includesPattern '**/*'
   excludesPattern ''
   repoLayoutRef 'simple-default'
