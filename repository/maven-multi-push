@@ -1,0 +1,26 @@
+repokey = userInput (
+    type : "STRING", // "BOOLEAN", "INTEGER", "INSTANCE", "REPOSITORY"
+    description : "Repository Key",
+    validations : (["cron"])
+  )
+
+localRepository(repokey) {
+  description 'Multi-Push from Chicago'
+  notes 'configured by stanleyf'
+  includesPattern '**/*'
+  excludesPattern ''
+  repoLayoutRef 'maven-2-default'
+  propertySets ([])
+  archiveBrowsingEnabled false
+  blackedOut false
+
+  packageType 'maven'
+
+  maxUniqueSnapshots 0
+  handleReleases true
+  handleSnapshots false
+  suppressPomConsistencyChecks false
+  snapshotVersionBehavior 'unique'
+  checksumPolicyType 'client-checksums'
+
+}
