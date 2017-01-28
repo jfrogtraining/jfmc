@@ -1,10 +1,4 @@
-repokey = userInput (
-    type : "STRING", // "BOOLEAN", "INTEGER", "INSTANCE", "REPOSITORY"
-    description : "Repository Key",
-    validations : (["cron"])
-  )
-
-localRepository(repokey) {
+localRepository() {
   description 'webinar docker local repo'
   notes 'created by stanley'
   includesPattern '**/*'
