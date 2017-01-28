@@ -1,0 +1,16 @@
+localRepository('docker-staging-local') {
+  description 'demo-promotion-to-staging-path'
+  notes 'created-by-automation'
+  includesPattern '**/*'
+  excludesPattern ''
+  repoLayoutRef 'simple-default'
+  propertySets ([])
+  archiveBrowsingEnabled false
+  blackedOut false
+
+  packageType 'docker'
+
+  dockerApiVersion 'V2'
+  forceDockerAuthentication 
+
+}
