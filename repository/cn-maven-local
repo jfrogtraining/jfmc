@@ -1,0 +1,20 @@
+localRepository('cn-maven-staging-local') {
+  description 'Multi-Push from Chicago'
+  notes 'configured by Chicago Amdin'
+  includesPattern '**/*'
+  excludesPattern ''
+  repoLayoutRef 'maven-2-default'
+  propertySets ([])
+  archiveBrowsingEnabled false
+  blackedOut false
+
+  packageType 'maven'
+
+  maxUniqueSnapshots 0
+  handleReleases true
+  handleSnapshots false
+  suppressPomConsistencyChecks false
+  snapshotVersionBehavior 'unique'
+  checksumPolicyType 'client-checksums'
+
+}
