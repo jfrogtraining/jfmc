@@ -5,7 +5,7 @@ repokey = userInput (
   )
 
 localRepository(repokey) {
-  description 'Multi-Push from Chicago'
+  description 'Multi-Push from Amsterdam'
   notes 'configured by stanleyf'
   includesPattern '**/*'
   excludesPattern ''
