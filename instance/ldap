@@ -1,6 +1,6 @@
 ldap {
     settings('ZEBRA_77LDAP') {
-        url 'ldap_url' // mandatory
+        url 'ldap://myserver:myport/DC=sampledomain,DC=com' // mandatory
         userDnPattern ''
         emailAttribute 'mail'
         enabled true // default value - true
