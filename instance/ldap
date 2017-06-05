@@ -1,16 +1,16 @@
 ldap {
-  settings('settings_name') {
-    url 'ldap://myserver:myport/DC=sampledomain,DC=com' // mandatory
-    userDnPattern 'uid={0},ou=People'
-    emailAttribute 'mail'
-    enabled true // default value - true
-    autoCreateUser true // default value - true
-    search {
-      filter '(uid={0})'
-      base 'OU=dev,DC=sampledomain,DC=com'
-      searchSubTree true
-      managerDn 'CN=admin,OU=ops,DC=sampledomain,DC=com'
-      managerPassword 'password'
+    settings('ZEBRA_77LDAP') {
+        url 'ldap_url' // mandatory
+        userDnPattern ''
+        emailAttribute 'mail'
+        enabled true // default value - true
+        autoCreateUser true // default value - true
+        search {
+            filter 'sAMAccountName={0}'
+            base 'OU=MotoNA|OU=03|OU=50|OU=80|OU=61'
+            searchSubTree true
+            managerDn 'managerDN'
+            managerPassword 'managerpassword'
+        }
     }
-  }
 }
